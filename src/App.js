@@ -1,8 +1,10 @@
-import React from 'react';
-import './App.css';
-import { AddExpanse } from './components/addExpanse';
+import React from "react";
+import "./App.css";
+import { AddExpanse } from "./components/addExpanse";
+import { ExpensesTable } from "./components/expensesTable";
+import { observer } from "mobx-react-lite";
 
-function App() {
+export const App = observer(({ store }) => {
   return (
     <div className="App">
       <header className="App-header">
@@ -10,10 +12,17 @@ function App() {
         <p>1EUR = 4,382 PLN</p>
       </header>
       <main>
-        <AddExpanse onAddExpanse={console.log}/>
+        <AddExpanse onAddExpanse={store.addItem} />
+        <ExpensesTable
+          expensesList={store.expensesItems}
+          deleteItem={store.removeItem}
+        />
+        <p>
+          Sum: {store.sumPln} PLN ({store.sumEur} EUR)
+        </p>
       </main>
     </div>
   );
-}
+});
 
 export default App;

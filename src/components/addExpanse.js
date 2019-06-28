@@ -27,10 +27,10 @@ export class AddExpanse extends React.Component {
   onSubmit = ev => {
     ev.preventDefault();
     const { titleInput, amountInput } = this.state;
-    this.props.onAddExpanse({
-      title: titleInput,
-      amount: parseFloat(amountInput.replace(",", "."))
-    });
+    this.props.onAddExpanse(
+      titleInput,
+      parseFloat(amountInput.replace(",", "."))
+    );
   };
 
   render() {
