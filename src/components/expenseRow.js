@@ -3,7 +3,7 @@ import React from "react";
 export function ExpenseRow({ expenseItem, onDeleteItem }) {
   function deleteItem() {
     return onDeleteItem(expenseItem.id);
-  };
+  }
 
   return (
     <tr>
@@ -11,7 +11,7 @@ export function ExpenseRow({ expenseItem, onDeleteItem }) {
       <td>{expenseItem.amountPln}</td>
       <td>{expenseItem.amountEur}</td>
       <td>
-        <button type="button" onClick={deleteItem}>
+        <button type="button" onClick={deleteItem} className={"delete-button"}>
           Delete
         </button>
       </td>

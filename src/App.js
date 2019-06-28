@@ -13,10 +13,7 @@ export const App = observer(({ store }) => {
       </header>
       <main>
         <AddExpanse onAddExpanse={store.addItem} />
-        <ExpensesTable
-          expensesList={store.expensesItems}
-          deleteItem={store.removeItem}
-        />
+        <ExpensesTable store={store}/>
         <p>
           Sum: {store.sumPln} PLN ({store.sumEur} EUR)
         </p>

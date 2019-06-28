@@ -2,7 +2,7 @@ import React from "react";
 import { ExpenseRow } from "./expenseRow";
 import { observer } from "mobx-react";
 
-export const ExpensesTable = observer(({ expensesList, deleteItem }) => {
+export const ExpensesTable = observer(({ store }) => {
   return (
     <table cellPadding="0" cellSpacing="0">
       <thead>
@@ -14,10 +14,10 @@ export const ExpensesTable = observer(({ expensesList, deleteItem }) => {
         </tr>
       </thead>
       <tbody>
-        {expensesList.map(item => (
+        {store.expensesItems.map(item => (
           <ExpenseRow
             expenseItem={item}
-            onDeleteItem={deleteItem}
+            onDeleteItem={store.removeItem}
             key={item.id}
           />
         ))}
