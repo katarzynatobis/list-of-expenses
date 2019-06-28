@@ -1,7 +1,16 @@
 import React from "react";
 
-export class AddExpanse extends React.Component {
-  constructor(props) {
+interface Props {
+  onAddItem: (title: string, amountPln: number) => void;
+}
+
+interface State {
+  titleInput: string;
+  amountInput: string;
+}
+
+export class AddExpenseItem extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       titleInput: "",
@@ -9,13 +18,13 @@ export class AddExpanse extends React.Component {
     };
   }
 
-  onTitleChange = ev => {
+  onTitleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
       titleInput: ev.currentTarget.value
     });
   };
 
-  onAmountChange = ev => {
+  onAmountChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const value = ev.currentTarget.value;
     if (/^[0-9]*[.,]{0,1}[0-9]{0,2}$/.test(value)) {
       this.setState({
@@ -24,13 +33,11 @@ export class AddExpanse extends React.Component {
     }
   };
 
-  onSubmit = ev => {
+  onSubmit = (ev: React.FormEvent) => {
     ev.preventDefault();
     const { titleInput, amountInput } = this.state;
-    this.props.onAddExpanse(
-      titleInput,
-      parseFloat(amountInput.replace(",", "."))
-    );
+    this.props.onAddItem(titleInput, parseFloat(amountInput.replace(",", ".")));
+    this.setState({ titleInput: "", amountInput: "" });
   };
 
   render() {

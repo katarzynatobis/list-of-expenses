@@ -2,26 +2,26 @@ import { observable, computed, action, decorate } from "mobx";
 import ExpenseItem from "./expenseItemModel";
 
 export class ExpensesItemsStore {
-  expensesItems = [];
+  expensesItems: Array<ExpenseItem> = [];
 
-  get sumPln() {
+  get sumPln(): number {
     return this.expensesItems.reduce((sum, item) => sum + item.amountPln, 0);
   }
 
-  get sumEur() {
+  get sumEur(): string {
     return (this.sumPln * 4.382).toFixed(2);
   }
 
-  addItem = (title, amountPln) => {
+  addItem = (title: string, amountPln: number) => {
     const item = new ExpenseItem(title, amountPln);
     this.expensesItems.push(item);
   };
 
-  removeItem = id => {
+  removeItem = (id: string) => {
     this.expensesItems = this.expensesItems.filter(item => item.id !== id);
   };
 
-  static initStore() {
+  static initStore(): ExpensesItemsStore {
     const store = new ExpensesItemsStore();
     const defaultItems = [
       { title: "Item 1", amountPln: 30.3 },

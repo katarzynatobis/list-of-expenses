@@ -1,6 +1,12 @@
 import React from "react";
+import ExpenseItem from "../state/expenseItemModel";
 
-export function ExpenseRow({ expenseItem, onDeleteItem }) {
+interface Props {
+  expenseItem: ExpenseItem;
+  onDeleteItem: (id: string) => void;
+}
+
+export const ExpenseRow: React.SFC<Props> = ({ expenseItem, onDeleteItem }) => {
   function deleteItem() {
     return onDeleteItem(expenseItem.id);
   }

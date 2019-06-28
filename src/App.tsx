@@ -1,10 +1,15 @@
 import React from "react";
 import "./App.css";
-import { AddExpanse } from "./components/addExpanse";
 import { ExpensesTable } from "./components/expensesTable";
 import { observer } from "mobx-react-lite";
+import { ExpensesItemsStore } from "./state/expensesItemsStore";
+import { AddExpenseItem } from "./components/addItem";
 
-export const App = observer(({ store }) => {
+interface Props {
+  store: ExpensesItemsStore;
+}
+
+export const App: React.SFC<Props> = observer(({ store }) => {
   return (
     <div className="App">
       <header className="App-header">
@@ -12,8 +17,8 @@ export const App = observer(({ store }) => {
         <p>1EUR = 4,382 PLN</p>
       </header>
       <main>
-        <AddExpanse onAddExpanse={store.addItem} />
-        <ExpensesTable store={store}/>
+        <AddExpenseItem onAddItem={store.addItem} />
+        <ExpensesTable store={store} />
         <p>
           Sum: {store.sumPln} PLN ({store.sumEur} EUR)
         </p>

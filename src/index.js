@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import App from "./App.tsx";
 import * as serviceWorker from "./serviceWorker";
-import { ExpensesItemsStore } from "./state/expensesItemsStore";
+import { ExpensesItemsStore } from "./state/expensesItemsStore.ts";
 
 ReactDOM.render(
   <App store={ExpensesItemsStore.initStore()} />,

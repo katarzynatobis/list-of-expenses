@@ -1,10 +1,10 @@
 export default class ExpenseItem {
-  title;
-  amountPln;
-  id;
+  title: string;
+  amountPln: number;
+  id: string;
 
-  constructor(title, amountPln) {
-    this.id = Date.now() + amountPln;
+  constructor(title: string, amountPln: number) {
+    this.id = Date.now() + amountPln + "";
     this.title = title;
     this.amountPln = amountPln;
   }

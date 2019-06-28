@@ -1,8 +1,13 @@
 import React from "react";
 import { ExpenseRow } from "./expenseRow";
 import { observer } from "mobx-react";
+import { ExpensesItemsStore } from "../state/expensesItemsStore";
 
-export const ExpensesTable = observer(({ store }) => {
+interface Props {
+  store: ExpensesItemsStore;
+}
+
+export const ExpensesTable: React.SFC<Props> = observer(({ store }) => {
   return (
     <table cellPadding="0" cellSpacing="0">
       <thead>
