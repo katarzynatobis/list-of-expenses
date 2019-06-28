@@ -10,7 +10,7 @@ function App() {
         <p>1EUR = 4,382 PLN</p>
       </header>
       <main>
-        <AddExpanse/>
+        <AddExpanse onAddExpanse={console.log}/>
       </main>
     </div>
   );
