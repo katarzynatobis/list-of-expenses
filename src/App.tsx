@@ -4,6 +4,7 @@ import { ExpensesTable } from "./components/expensesTable";
 import { observer } from "mobx-react-lite";
 import { ExpensesItemsStore } from "./state/expensesItemsStore";
 import { AddExpenseItem } from "./components/addItem";
+import { Summary } from "./components/summary";
 
 interface Props {
   store: ExpensesItemsStore;
@@ -19,9 +20,7 @@ export const App: React.SFC<Props> = observer(({ store }) => {
       <main>
         <AddExpenseItem onAddItem={store.addItem} />
         <ExpensesTable store={store} />
-        <p>
-          Sum: {store.sumPln} PLN ({store.sumEur} EUR)
-        </p>
+        <Summary sumEur={store.sumEur} sumPln={store.sumPln}/>
       </main>
     </div>
   );

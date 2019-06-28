@@ -66,7 +66,7 @@ th {
 }
 
 td:not(:nth-child(4n + 1)) {
-  width: 11opx;
+  width: 110px;
 }
 
 tr:nth-child(2n) {
