@@ -52,6 +52,7 @@ export class AddExpenseItem extends React.Component<Props, State> {
                 value={this.state.titleInput}
                 onChange={this.onTitleChange}
                 minLength={5}
+                required
               />
             </label>
             <label className={"input-wrapper"}>
@@ -61,6 +62,7 @@ export class AddExpenseItem extends React.Component<Props, State> {
                 value={this.state.amountInput}
                 onChange={this.onAmountChange}
                 pattern={"^[0-9]*[.,]{0,1}[0-9]{0,2}$"}
+                required
               />
             </label>
           </div>
